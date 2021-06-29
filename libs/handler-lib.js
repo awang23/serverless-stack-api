@@ -10,9 +10,13 @@ export default function handler(lambda) {
         statusCode = 500;
       }
     // Return HTTP response
-      return {
+    return {
         statusCode,
         body: JSON.stringify(body),
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
       };
     };
   }
